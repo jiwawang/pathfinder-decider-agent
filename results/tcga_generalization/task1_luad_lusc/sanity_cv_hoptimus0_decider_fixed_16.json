@@ -1,0 +1,22 @@
+{
+ "encoder": "hoptimus0",
+ "method": "decider_fixed_16",
+ "n_slides": 198,
+ "dim": 1536,
+ "auroc": {
+  "mean": 0.9507,
+  "std": 0.0071
+ },
+ "balanced_accuracy": {
+  "mean": 0.8969,
+  "std": 0.0146
+ },
+ "f1": {
+  "mean": 0.899,
+  "std": 0.0142
+ },
+ "accuracy": {
+  "mean": 0.897,
+  "std": 0.0146
+ }
+}

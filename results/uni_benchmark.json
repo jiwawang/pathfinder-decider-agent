@@ -1,0 +1,23 @@
+{
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "slide_id": "<private-slide>",
+  "n": 63,
+  "patch_read_ms": {
+    "mean": 2.2937884930306898,
+    "median": 2.3789819970261306
+  },
+  "uni_encode_ms_batch1": {
+    "mean": 11.153660205540262,
+    "median": 7.651725987670943,
+    "p95": 25.135667776339687
+  },
+  "uni_end_to_end_ms_batch1": 13.447448698570952,
+  "uni_patches_per_second_by_batch": {
+    "1": 151.934850703089,
+    "8": 257.54053577095914,
+    "32": 293.12491757115237,
+    "64": 291.04174853257564
+  },
+  "peak_gpu_memory_gb": 1.88391424,
+  "live_vs_cached_cosine": 1.0
+}

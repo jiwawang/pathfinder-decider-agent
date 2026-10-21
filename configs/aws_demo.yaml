@@ -1,0 +1,12 @@
+# WP007 AWS demo configuration. Secrets and account-specific values come ONLY from the environment:
+#   AWS_REGION, BEDROCK_MODEL_ID, S3_BUCKET (bucket name without s3://), optional S3_PREFIX (default pathfinder-demo)
+demo:
+  local_root: <ARTIFACT_ROOT>/aws_demo/pathfinder-demo   # same layout as s3://$S3_BUCKET/$S3_PREFIX/
+  s3_prefix_default: pathfinder-demo
+  budget: 16                     # pre-specified Decider Fixed-16 (WP007 section 13)
+  adaptive_min: 4                # optional --mode adaptive uses the frozen V2.1 settings
+  adaptive_max: 32
+  decider_model: StrandsAgents/strands-decider-2B-qwen3.5-v1-2610
+  encoder: hoptimus0                        # hackathon encoder: bioptimus/H-optimus-0 (Apache-2.0, 1536-d, gated access on HF, weights never redistributed)
+                                            # "uni" = historical research encoder (CC-BY-NC-ND-4.0), not used for demos
+  runs_dir: results/aws_smoke               # local copy of every run trace (also uploaded to s3://.../runs/<run_id>/ when S3_BUCKET is set)

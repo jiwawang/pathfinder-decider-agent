@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Environments
+.venv/
+env/
+venv/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Data (WSIs, patch grids, embeddings, cheap features, candidate pools)
+data/
+artifacts
+*.svs
+*.tif
+*.tiff
+*.h5
+*.hdf5
+*.npy
+*.npz
+
+# Large model artifacts
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# Runtime caches / logs
+cache/
+tmp/
+*.log
+results/_logs/
+
+# Large experiment traces (summaries, CSVs, plots and reports stay tracked)
+results/**/traces/
+results/**/raw/
+
+# Streamlit / runtime
+.streamlit/secrets.toml
+
+# video frames: only final.png / evidence_sheet.png are tracked
+results/submission_frames/*/frame_*.png

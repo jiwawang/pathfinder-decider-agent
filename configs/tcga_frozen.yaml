@@ -1,0 +1,59 @@
+# WP005 frozen protocol for the TCGA cross-task generalization experiment.
+# Every value below is copied from the audited code / config at tag v2.1-audited (commit 4530fe3);
+# nothing may be re-chosen after seeing TCGA results. Prompts and strategies are referenced by file.
+frozen_from: {tag: v2.1-audited, commit: 4530fe3, config: configs/default.yaml}
+
+encoder:
+  name: UNI                       # hf-hub:MahmoodLab/UNI via timm (src/acquisition/lazy_uni_store.py:116)
+  frozen: true
+  input_px: 224                   # transforms.Resize(224) -> CenterCrop(224) -> ImageNet mean/std normalise
+  l2_normalize: true              # embeddings unit-normalised before use (configs/default.yaml embeddings.l2_normalize)
+
+patching:
+  patch_px_at_reference_mpp: 224  # the OBR grid: 224 px at level 0, stride 224, tissue fraction >= 0.05 (<PRIVATE_COHORT_PIPELINE> batch_preprocess_tcia_fixed.py)
+  reference_mpp: 0.5              # OBR SVS files carry NO MPP metadata; 0.5 um/px comes from /data/obr_mpp.csv ("20x, ~0.5 mpp, verified"
+                                  # by the earlier ovarian-bev-wsi project). Physical field = 112 um. This is an assumption to record, not a measurement.
+  tcga_adapter: mpp_matched       # TCGA slides with MPP m read a window of round(224 * 0.5 / m) px at level 0 and resize it to 224
+                                  # (e.g. 448 px on 0.25 um/px 40x scans), so UNI sees the same ~112 um field as on OBR.
+
+cheap_features:
+  definition: src/cheap_features/extract.py (19 features, FEATURE_NAMES)   # unchanged
+  work_size: 56
+  tissue_threshold: saturation > 20 (HSV, uint8)
+
+candidate_selection:
+  feature_type: cheap
+  pool_size: 128                  # KMeans on within-slide standardised cheap features (src/acquisition/candidate_pool.py)
+  kmeans_n_init: 3
+  kmeans_random_state: 0
+  nearest_real_patch_per_cluster: true
+
+acquisition:
+  shortlist_size: 4
+  strategies: [largest_cluster, cheap_novelty, spatial_far, undercovered_region]   # src/acquisition/shortlist.py, shuffled positions
+  budgets: [4, 8, 16, 32]
+  fixed_budget_router: src/acquisition/adaptive_agent.py AdaptiveRouterV21 with min_calls = max_calls = K
+  adaptive_stop: {min_uni_calls: 4, max_uni_calls: 32, information_gain_window: 4, low_confidence_threshold: 0.15, spatial_coverage_radius: 0.08}
+  route_question: src/acquisition/adaptive_agent.py ROUTE_QUESTION    # verbatim, unchanged
+  halt_question: src/acquisition/adaptive_agent.py HALT_QUESTION / HALT_CRITERIA   # verbatim, unchanged
+  decider_model: StrandsAgents/strands-decider-2B-qwen3.5-v1-2610
+  baselines:
+    random: uniform random tissue patches (3 draws)
+    spatial_uniform: KMeans on coordinates -> nearest patch (src/acquisition/sequential_agent.py uniform_spatial_patches)
+    cheap_topk: K largest cheap clusters (sequential_agent.cheap_cluster_topk)        # "Cheap Top-K"
+    cheap_greedy: K sequential picks by unified exploration score (sequential_agent.cheap_greedy)   # "Cheap Fixed-K" / "Cheap Greedy"
+  pooling: mean                   # mean of acquired UNI embeddings
+
+classifier:
+  type: logistic_regression       # sklearn LogisticRegression(C=1.0, max_iter=5000, class_weight="balanced"), lbfgs, L2
+  C: 1.0
+  standardize: true               # StandardScaler inside the same Pipeline, fit on the training fold only
+  pca_components: 0
+
+evaluation:
+  split: StratifiedGroupKFold(n_splits=5, shuffle=True, random_state=seed), groups = patient_id   # src/evaluation/splits.py
+  folds: 5
+  seeds: [0, 1, 2, 3, 4]
+  metric_aggregation: per-seed out-of-fold AUROC, mean +- std over seeds; patient-level bootstrap CI added for WP005
+  one_slide_per_patient: lowest DX number (file name sort), as in <TCGA_ROOT>/tcga_select_download.py select()
+  sampling: seed-0 shuffle of eligible patients, first 100 per class

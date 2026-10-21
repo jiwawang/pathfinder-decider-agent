@@ -1,0 +1,23 @@
+{
+  "n_stop": 58,
+  "n_continue": 1287,
+  "recent_gain_mean": {
+    "at_STOP": 0.3649655172413793,
+    "at_CONTINUE": 0.49696658896658896
+  },
+  "latest_gain": {
+    "at_STOP": 0.31922413793103444,
+    "at_CONTINUE": 0.4682191142191143
+  },
+  "slope": {
+    "at_STOP": -0.03560172413793103,
+    "at_CONTINUE": -0.022279797979797983
+  },
+  "similarity": {
+    "at_STOP": 0.34655172413793106,
+    "at_CONTINUE": 0.32467676767676773
+  },
+  "corr_stop_probability_vs_recent_gain": -0.5795681887139923,
+  "corr_stop_probability_vs_uni_calls": 0.29570131612600953,
+  "corr_stop_probability_vs_similarity": 0.06780159755481424
+}

@@ -1,0 +1,15 @@
+# WP005 Task 0: three-class cancer-type classification on the local COAD / KIRC / LUAD diagnostic slides.
+# Protocol values (encoder, cheap features, pools, budgets, prompts, classifier, CV) are inherited from
+# configs/tcga_frozen.yaml / configs/default.yaml; this file only maps paths and labels.
+tcga:
+  task: task0_3class
+  label_map: {COAD: 0, KIRC: 1, LUAD: 2}          # D001 mapping
+  svs_dirs: {COAD: <TCGA_ROOT>/COAD/svs, KIRC: <TCGA_ROOT>/KIRC/svs, LUAD: <TCGA_ROOT>/LUAD/svs}
+  job_dirs:                                       # NEW TRIDENT job_dir per cancer type (settings_2_hest)
+    COAD: <TCGA_ROOT>/COAD/Patch_Trident_settings_2_hest
+    KIRC: <TCGA_ROOT>/KIRC/Patch_Trident_settings_2_hest
+    LUAD: <TCGA_ROOT>/LUAD/Patch_Trident_settings_2_hest
+  coords_dir: 20x_224px_0px_overlap_tissue0.5     # --mag 20 --patch_size 224 --overlap 0 --min_tissue_proportion 0.5
+  slide_table: metadata/tcga_task0_slides.csv
+  reader: {target_px: 224, target_mpp: 0.5, resample: LANCZOS, mpp_rule: "openslide mpp only; skip if missing or x/y differ > 1%"}
+  results_dir: results/tcga_generalization/task0_3class

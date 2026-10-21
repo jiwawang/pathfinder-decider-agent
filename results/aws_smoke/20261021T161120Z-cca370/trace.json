@@ -1,0 +1,2093 @@
+{
+ "run_id": "20261021T161120Z-cca370",
+ "timestamp_utc": "2026-10-21T16:11:40.517630+00:00",
+ "aws_region": "",
+ "source": "local",
+ "s3_bucket_set": false,
+ "host": "<redacted>",
+ "git_commit": "8944c30b5950996053c406e3c2d3e05d2697980d",
+ "decider_model": "StrandsAgents/strands-decider-2B-qwen3.5-v1-2610",
+ "encoder": "hoptimus0",
+ "encoder_hub": "hf-hub:bioptimus/H-optimus-0",
+ "encoder_license": "Apache-2.0",
+ "encoder_dim": 1536,
+ "classifier_artifact": "task1_luad_lusc_hoptimus0_seed0_fold2",
+ "bedrock_model_id": "",
+ "gpu": {
+  "name": "NVIDIA GeForce RTX 4090",
+  "memory_after_load_gb": 8.58
+ },
+ "budget": {
+  "min": 16,
+  "max": 16,
+  "mode": "live"
+ },
+ "summary": {
+  "slide_id": "TCGA-85-A4CL-01Z-00-DX1.05BC31FF-3B88-489F-9BD2-5B2B31C72EDB",
+  "mode": "local_dry_run_on_demand_uni",
+  "prediction": {
+   "predicted_class": 1,
+   "predicted_class_name": "LUSC",
+   "probabilities": {
+    "LUAD": 0.0001,
+    "LUSC": 0.9999
+   }
+  },
+  "search": {
+   "tissue_patches_in_slide": 10646,
+   "candidate_pool": 128,
+   "rounds": 17,
+   "uni_calls": 16,
+   "uni_compute_avoided_percent": 99.85,
+   "cheap_clusters_covered": 16,
+   "stopped_by_agent": false,
+   "strategy_counts": {
+    "largest_cluster": 9,
+    "cheap_novelty": 0,
+    "spatial_far": 4,
+    "undercovered_region": 3
+   },
+   "mean_decision_confidence": 0.0,
+   "mean_decision_latency_ms": 121.3,
+   "mean_uni_call_latency_ms": 31.2,
+   "wall_time_s": 2.46,
+   "final_mean_pairwise_uni_similarity": 0.246,
+   "information_gains": [
+    1.0,
+    0.925,
+    0.622,
+    0.408,
+    0.341,
+    0.407,
+    0.782,
+    0.793,
+    0.801,
+    0.294,
+    0.458,
+    0.493,
+    0.315,
+    0.796,
+    0.398,
+    0.427
+   ]
+  },
+  "classifier": {
+   "artifact": "task1_luad_lusc_hoptimus0_seed0_fold2",
+   "dataset": "task1_luad_lusc",
+   "fold": 2,
+   "n_train": 158,
+   "git_commit": "8944c30b5950996053c406e3c2d3e05d2697980d"
+  },
+  "true_label_hidden_from_reporter": true
+ },
+ "report": {
+  "source": "template",
+  "reason": "--no-bedrock",
+  "report": ""
+ },
+ "timings": {
+  "decider_load_s": 5.2,
+  "uni_load_s": 11.6,
+  "acquisition_loop_s": 2.46,
+  "classifier_s": 0.0037,
+  "bedrock_s": 0.0,
+  "end_to_end_s": 19.99
+ },
+ "decider_calls": 16,
+ "uni_calls": 16,
+ "decider_latency_ms": {
+  "mean": 121.3,
+  "median": 105.0
+ },
+ "uni_latency_ms": {
+  "mean": 31.2,
+  "median": 18.0
+ },
+ "acquired_patch_index": [
+  7002,
+  675,
+  8441,
+  4656,
+  9413,
+  6097,
+  302,
+  8657,
+  10594,
+  7213,
+  6597,
+  9197,
+  8546,
+  1001,
+  8615,
+  938
+ ],
+ "decision_history": [
+  {
+   "slide_id": "TCGA-85-A4CL-01Z-00-DX1.05BC31FF-3B88-489F-9BD2-5B2B31C72EDB",
+   "round": 0,
+   "uni_calls": 0,
+   "state": {
+    "uni_calls_used": 0,
+    "maximum_uni_calls": 16,
+    "remaining_candidate_count": 128,
+    "mean_pairwise_uni_similarity": 0.0,
+    "mean_pairwise_uni_distance": 1.0,
+    "information_gain_of_each_acquisition_so_far": [],
+    "latest_information_gain": null,
+    "recent_information_gains": [],
+    "recent_gain_mean": null,
+    "recent_gain_min": null,
+    "recent_gain_max": null,
+    "recent_gain_slope": null,
+    "average_gain_of_first_acquisitions": null,
+    "average_gain_of_last_acquisitions": null,
+    "recent_gain_as_percent_of_initial_gains": null,
+    "new_cheap_clusters_found_in_last_4": 0,
+    "cheap_cluster_coverage_percent": 0.0,
+    "spatial_coverage_percent": 0.0
+   },
+   "recent_information_gains": [],
+   "recent_gain_mean": null,
+   "recent_gain_percent_of_initial": null,
+   "recent_gain_slope": null,
+   "mean_pairwise_uni_similarity": 0.0,
+   "cheap_cluster_coverage": 0.0,
+   "spatial_coverage": 0.0,
+   "stop_allowed": false,
+   "stop_probability": null,
+   "halt_confidence": null,
+   "options": {
+    "A": "spatial_far",
+    "B": "largest_cluster",
+    "C": "cheap_novelty",
+    "D": "undercovered_region"
+   },
+   "candidates": {
+    "A": {
+     "cluster_coverage_percent": 0.6,
+     "cheap_novelty": 1.0,
+     "distance_from_nearest_acquired": 1.0,
+     "tissue_fraction": 0.93,
+     "entropy": 0.88,
+     "representativeness": 0.6,
+     "why_shortlisted": "spatially farthest from acquired evidence",
+     "exploration_score": 3.022
+    },
+    "B": {
+     "cluster_coverage_percent": 2.9,
+     "cheap_novelty": 1.0,
+     "distance_from_nearest_acquired": 1.0,
+     "tissue_fraction": 1.0,
+     "entropy": 0.87,
+     "representativeness": 0.68,
+     "why_shortlisted": "largest unexplored tissue cluster",
+     "exploration_score": 3.87
+    },
+    "C": {
+     "cluster_coverage_percent": 0.3,
+     "cheap_novelty": 1.0,
+     "distance_from_nearest_acquired": 1.0,
+     "tissue_fraction": 0.99,
+     "entropy": 0.93,
+     "representativeness": 0.66,
+     "why_shortlisted": "highest cheap-feature novelty",
+     "exploration_score": 3.034
+    },
+    "D": {
+     "cluster_coverage_percent": 1.7,
+     "cheap_novelty": 1.0,
+     "distance_from_nearest_acquired": 1.0,
+     "tissue_fraction": 1.0,
+     "entropy": 0.89,
+     "representativeness": 0.81,
+     "why_shortlisted": "under-covered neighbourhood",
+     "exploration_score": 3.471
+    }
+   },
+   "selected_option": "B",
+   "selected_strategy": "largest_cluster",
+   "route_probabilities": {
+    "A": 0.0574,
+    "B": 0.6278,
+    "C": 0.1777,
+    "D": 0.1371
+   },
+   "route_confidence": 0.5037,
+   "overridden_by": null,
+   "decision": "B",
+   "latency_ms": 364.18,
+   "model_queried": true,
+   "acquired_patch_index": 7002,
+   "acquired_coord": [
+    46592,
+    43904
+   ],
+   "information_gain": 1.0
+  },
+  {
+   "slide_id": "TCGA-85-A4CL-01Z-00-DX1.05BC31FF-3B88-489F-9BD2-5B2B31C72EDB",
+   "round": 1,
+   "uni_calls": 1,
+   "state": {
+    "uni_calls_used": 1,
+    "maximum_uni_calls": 16,
+    "remaining_candidate_count": 127,
+    "mean_pairwise_uni_similarity": 0.0,
+    "mean_pairwise_uni_distance": 1.0,
+    "information_gain_of_each_acquisition_so_far": [
+     1.0
+    ],
+    "latest_information_gain": 1.0,
+    "recent_information_gains": [
+     1.0
+    ],
+    "recent_gain_mean": 1.0,
+    "recent_gain_min": 1.0,
+    "recent_gain_max": 1.0,
+    "recent_gain_slope": 0.0,
+    "average_gain_of_first_acquisitions": 1.0,
+    "average_gain_of_last_acquisitions": 1.0,
+    "recent_gain_as_percent_of_initial_gains": 100.0,
+    "new_cheap_clusters_found_in_last_4": 1,
+    "cheap_cluster_coverage_percent": 0.8,
+    "spatial_coverage_percent": 4.7
+   },
+   "recent_information_gains": [
+    1.0
+   ],
+   "recent_gain_mean": 1.0,
+   "recent_gain_percent_of_initial": 100.0,
+   "recent_gain_slope": 0.0,
+   "mean_pairwise_uni_similarity": 0.0,
+   "cheap_cluster_coverage": 0.008,
+   "spatial_coverage": 0.047,
+   "stop_allowed": false,
+   "stop_probability": null,
+   "halt_confidence": null,
+   "options": {
+    "A": "undercovered_region",
+    "B": "spatial_far",
+    "C": "cheap_novelty",
+    "D": "largest_cluster"
+   },
+   "candidates": {
+    "A": {
+     "cluster_coverage_percent": 0.3,
+     "cheap_novelty": 0.66,
+     "distance_from_nearest_acquired": 0.19,
+     "tissue_fraction": 0.99,
+     "entropy": 0.93,
+     "representativeness": 0.66,
+     "why_shortlisted": "under-covered neighbourhood",
+     "exploration_score": 1.884
+    },
+    "B": {
+     "cluster_coverage_percent": 0.4,
+     "cheap_novelty": 1.0,
+     "distance_from_nearest_acquired": 0.55,
+     "tissue_fraction": 0.73,
+     "entropy": 0.8,
+     "representativeness": 0.57,
+     "why_shortlisted": "spatially farthest from acquired evidence",
+     "exploration_score": 2.273
+    },
+    "C": {
+     "cluster_coverage_percent": 0.2,
+     "cheap_novelty": 1.0,
+     "distance_from_nearest_acquired": 0.54,
+     "tissue_fraction": 0.27,
+     "entropy": 0.48,
+     "representativeness": 0.57,
+     "why_shortlisted": "highest cheap-feature novelty",
+     "exploration_score": 1.731
+    },
+    "D": {
+     "cluster_coverage_percent": 2.8,
+     "cheap_novelty": 0.19,
+     "distance_from_nearest_acquired": 0.07,
+     "tissue_fraction": 1.0,
+     "entropy": 0.85,
+     "representativeness": 0.71,
+     "why_shortlisted": "largest unexplored tissue cluster",
+     "exploration_score": 2.065
+    }
+   },
+   "selected_option": "B",
+   "selected_strategy": "spatial_far",
+   "route_probabilities": {
+    "A": 0.144,
+    "B": 0.3733,
+    "C": 0.1231,
+    "D": 0.3596
+   },
+   "route_confidence": 0.1644,
+   "overridden_by": null,
+   "decision": "B",
+   "latency_ms": 98.93,
+   "model_queried": true,
+   "acquired_patch_index": 675,
+   "acquired_coord": [
+    19712,
+    13888
+   ],
+   "information_gain": 0.9245
+  },
+  {
+   "slide_id": "TCGA-85-A4CL-01Z-00-DX1.05BC31FF-3B88-489F-9BD2-5B2B31C72EDB",
+   "round": 2,
+   "uni_calls": 2,
+   "state": {
+    "uni_calls_used": 2,
+    "maximum_uni_calls": 16,
+    "remaining_candidate_count": 126,
+    "mean_pairwise_uni_similarity": 0.075,
+    "mean_pairwise_uni_distance": 0.925,
+    "information_gain_of_each_acquisition_so_far": [
+     1.0,
+     0.92
+    ],
+    "latest_information_gain": 0.925,
+    "recent_information_gains": [
+     1.0,
+     0.925
+    ],
+    "recent_gain_mean": 0.962,
+    "recent_gain_min": 0.925,
+    "recent_gain_max": 1.0,
+    "recent_gain_slope": -0.0755,
+    "average_gain_of_first_acquisitions": 0.925,
+    "average_gain_of_last_acquisitions": 0.962,
+    "recent_gain_as_percent_of_initial_gains": 104.1,
+    "new_cheap_clusters_found_in_last_4": 2,
+    "cheap_cluster_coverage_percent": 1.6,
+    "spatial_coverage_percent": 7.0
+   },
+   "recent_information_gains": [
+    1.0,
+    0.925
+   ],
+   "recent_gain_mean": 0.962,
+   "recent_gain_percent_of_initial": 104.1,
+   "recent_gain_slope": -0.0755,
+   "mean_pairwise_uni_similarity": 0.075,
+   "cheap_cluster_coverage": 0.016,
+   "spatial_coverage": 0.07,
+   "stop_allowed": false,
+   "stop_probability": null,
+   "halt_confidence": null,
+   "options": {
+    "A": "cheap_novelty",
+    "B": "undercovered_region",
+    "C": "largest_cluster",
+    "D": "spatial_far"
+   },
+   "candidates": {
+    "A": {
+     "cluster_coverage_percent": 0.2,
+     "cheap_novelty": 1.0,
+     "distance_from_nearest_acquired": 0.21,
+     "tissue_fraction": 0.75,
+     "entropy": 0.8,
+     "representativeness": 0.56,
+     "why_shortlisted": "highest cheap-feature novelty",
+     "exploration_score": 1.862
+    },
+    "B": {
+     "cluster_coverage_percent": 0.3,
+     "cheap_novelty": 0.66,
+     "distance_from_nearest_acquired": 0.19,
+     "tissue_fraction": 0.99,
+     "entropy": 0.93,
+     "representativeness": 0.66,
+     "why_shortlisted": "under-covered neighbourhood",
+     "exploration_score": 1.884
+    },
+    "C": {
+     "cluster_coverage_percent": 2.8,
+     "cheap_novelty": 0.19,
+     "distance_from_nearest_acquired": 0.07,
+     "tissue_fraction": 1.0,
+     "entropy": 0.85,
+     "representativeness": 0.71,
+     "why_shortlisted": "largest unexplored tissue cluster",
+     "exploration_score": 2.065
+    },
+    "D": {
+     "cluster_coverage_percent": 0.3,
+     "cheap_novelty": 0.85,
+     "distance_from_nearest_acquired": 0.49,
+     "tissue_fraction": 0.37,
+     "entropy": 0.69,
+     "representativeness": 0.62,
+     "why_shortlisted": "spatially farthest from acquired evidence",
+     "exploration_score": 1.689
+    }
+   },
+   "selected_option": "C",
+   "selected_strategy": "largest_cluster",
+   "route_probabilities": {
+    "A": 0.2258,
+    "B": 0.2593,
+    "C": 0.4521,
+    "D": 0.0629
+   },
+   "route_confidence": 0.2694,
+   "overridden_by": null,
+   "decision": "C",
+   "latency_ms": 96.55,
+   "model_queried": true,
+   "acquired_patch_index": 8441,
+   "acquired_coord": [
+    44352,
+    48384
+   ],
+   "information_gain": 0.6225
+  },
+  {
+   "slide_id": "TCGA-85-A4CL-01Z-00-DX1.05BC31FF-3B88-489F-9BD2-5B2B31C72EDB",
+   "round": 3,
+   "uni_calls": 3,
+   "state": {
+    "uni_calls_used": 3,
+    "maximum_uni_calls": 16,
+    "remaining_candidate_count": 125,
+    "mean_pairwise_uni_similarity": 0.167,
+    "mean_pairwise_uni_distance": 0.833,
+    "information_gain_of_each_acquisition_so_far": [
+     1.0,
+     0.92,
+     0.62
+    ],
+    "latest_information_gain": 0.622,
+    "recent_information_gains": [
+     1.0,
+     0.925,
+     0.622
+    ],
+    "recent_gain_mean": 0.849,
+    "recent_gain_min": 0.622,
+    "recent_gain_max": 1.0,
+    "recent_gain_slope": -0.1888,
+    "average_gain_of_first_acquisitions": 0.774,
+    "average_gain_of_last_acquisitions": 0.849,
+    "recent_gain_as_percent_of_initial_gains": 109.8,
+    "new_cheap_clusters_found_in_last_4": 3,
+    "cheap_cluster_coverage_percent": 2.3,
+    "spatial_coverage_percent": 7.8
+   },
+   "recent_information_gains": [
+    1.0,
+    0.925,
+    0.622
+   ],
+   "recent_gain_mean": 0.849,
+   "recent_gain_percent_of_initial": 109.8,
+   "recent_gain_slope": -0.1888,
+   "mean_pairwise_uni_similarity": 0.167,
+   "cheap_cluster_coverage": 0.023,
+   "spatial_coverage": 0.078,
+   "stop_allowed": false,
+   "stop_probability": null,
+   "halt_confidence": null,
+   "options": {
+    "A": "largest_cluster",
+    "B": "spatial_far",
+    "C": "undercovered_region",
+    "D": "cheap_novelty"
+   },
+   "candidates": {
+    "A": {
+     "cluster_coverage_percent": 2.5,
+     "cheap_novelty": 0.2,
+     "distance_from_nearest_acquired": 0.12,
+     "tissue_fraction": 1.0,
+     "entropy": 0.83,
+     "representativeness": 0.73,
+     "why_shortlisted": "largest unexplored tissue cluster",
+     "exploration_score": 2.005
+    },
+    "B": {
+     "cluster_coverage_percent": 0.3,
+     "cheap_novelty": 0.85,
+     "distance_from_nearest_acquired": 0.46,
+     "tissue_fraction": 0.37,
+     "entropy": 0.69,
+     "representativeness": 0.62,
+     "why_shortlisted": "spatially farthest from acquired evidence",
+     "exploration_score": 1.659
+    },
+    "C": {
+     "cluster_coverage_percent": 0.3,
+     "cheap_novelty": 0.66,
+     "distance_from_nearest_acquired": 0.19,
+     "tissue_fraction": 0.99,
+     "entropy": 0.93,
+     "representativeness": 0.66,
+     "why_shortlisted": "under-covered neighbourhood",
+     "exploration_score": 1.884
+    },
+    "D": {
+     "cluster_coverage_percent": 0.2,
+     "cheap_novelty": 1.0,
+     "distance_from_nearest_acquired": 0.21,
+     "tissue_fraction": 0.75,
+     "entropy": 0.8,
+     "representativeness": 0.56,
+     "why_shortlisted": "highest cheap-feature novelty",
+     "exploration_score": 1.862
+    }
+   },
+   "selected_option": "A",
+   "selected_strategy": "largest_cluster",
+   "route_probabilities": {
+    "A": 0.4254,
+    "B": 0.1277,
+    "C": 0.1741,
+    "D": 0.2728
+   },
+   "route_confidence": 0.2339,
+   "overridden_by": null,
+   "decision": "A",
+   "latency_ms": 110.31,
+   "model_queried": true,
+   "acquired_patch_index": 4656,
+   "acquired_coord": [
+    49728,
+    36288
+   ],
+   "information_gain": 0.4083
+  },
+  {
+   "slide_id": "TCGA-85-A4CL-01Z-00-DX1.05BC31FF-3B88-489F-9BD2-5B2B31C72EDB",
+   "round": 4,
+   "uni_calls": 4,
+   "state": {
+    "uni_calls_used": 4,
+    "maximum_uni_calls": 16,
+    "remaining_candidate_count": 124,
+    "mean_pairwise_uni_similarity": 0.253,
+    "mean_pairwise_uni_distance": 0.747,
+    "information_gain_of_each_acquisition_so_far": [
+     1.0,
+     0.92,
+     0.62,
+     0.41
+    ],
+    "latest_information_gain": 0.408,
+    "recent_information_gains": [
+     1.0,
+     0.925,
+     0.622,
+     0.408
+    ],
+    "recent_gain_mean": 0.739,
+    "recent_gain_min": 0.408,
+    "recent_gain_max": 1.0,
+    "recent_gain_slope": -0.2077,
+    "average_gain_of_first_acquisitions": 0.652,
+    "average_gain_of_last_acquisitions": 0.739,
+    "recent_gain_as_percent_of_initial_gains": 113.4,
+    "new_cheap_clusters_found_in_last_4": 4,
+    "cheap_cluster_coverage_percent": 3.1,
+    "spatial_coverage_percent": 10.9
+   },
+   "recent_information_gains": [
+    1.0,
+    0.925,
+    0.622,
+    0.408
+   ],
+   "recent_gain_mean": 0.739,
+   "recent_gain_percent_of_initial": 113.4,
+   "recent_gain_slope": -0.2077,
+   "mean_pairwise_uni_similarity": 0.253,
+   "cheap_cluster_coverage": 0.031,
+   "spatial_coverage": 0.109,
+   "stop_allowed": false,
+   "stop_probability": null,
+   "halt_confidence": null,
+   "options": {
+    "A": "largest_cluster",
+    "B": "spatial_far",
+    "C": "cheap_novelty",
+    "D": "undercovered_region"
+   },
+   "candidates": {
+    "A": {
+     "cluster_coverage_percent": 2.4,
+     "cheap_novelty": 0.19,
+     "distance_from_nearest_acquired": 0.05,
+     "tissue_fraction": 1.0,
+     "entropy": 0.89,
+     "representativeness": 0.71,
+     "why_shortlisted": "largest unexplored tissue cluster",
+     "exploration_score": 1.943
+    },
+    "B": {
+     "cluster_coverage_percent": 0.3,
+     "cheap_novelty": 0.85,
+     "distance_from_nearest_acquired": 0.46,
+     "tissue_fraction": 0.37,
+     "entropy": 0.69,
+     "representativeness": 0.62,
+     "why_shortlisted": "spatially farthest from acquired evidence",
+     "exploration_score": 1.659
+    },
+    "C": {
+     "cluster_coverage_percent": 0.2,
+     "cheap_novelty": 1.0,
+     "distance_from_nearest_acquired": 0.21,
+     "tissue_fraction": 0.75,
+     "entropy": 0.8,
+     "representativeness": 0.56,
+     "why_shortlisted": "highest cheap-feature novelty",
+     "exploration_score": 1.862
+    },
+    "D": {
+     "cluster_coverage_percent": 0.3,
+     "cheap_novelty": 0.66,
+     "distance_from_nearest_acquired": 0.19,
+     "tissue_fraction": 0.99,
+     "entropy": 0.93,
+     "representativeness": 0.66,
+     "why_shortlisted": "under-covered neighbourhood",
+     "exploration_score": 1.884
+    }
+   },
+   "selected_option": "A",
+   "selected_strategy": "largest_cluster",
+   "route_probabilities": {
+    "A": 0.2803,
+    "B": 0.1055,
+    "C": 0.2939,
+    "D": 0.3203
+   },
+   "route_confidence": 0.0937,
+   "overridden_by": "low_confidence",
+   "decision": "A",
+   "latency_ms": 102.17,
+   "model_queried": true,
+   "acquired_patch_index": 9413,
+   "acquired_coord": [
+    44800,
+    51520
+   ],
+   "information_gain": 0.3414
+  },
+  {
+   "slide_id": "TCGA-85-A4CL-01Z-00-DX1.05BC31FF-3B88-489F-9BD2-5B2B31C72EDB",
+   "round": 5,
+   "uni_calls": 5,
+   "state": {
+    "uni_calls_used": 5,
+    "maximum_uni_calls": 16,
+    "remaining_candidate_count": 123,
+    "mean_pairwise_uni_similarity": 0.313,
+    "mean_pairwise_uni_distance": 0.687,
+    "information_gain_of_each_acquisition_so_far": [
+     1.0,
+     0.92,
+     0.62,
+     0.41,
+     0.34
+    ],
+    "latest_information_gain": 0.341,
+    "recent_information_gains": [
+     0.925,
+     0.622,
+     0.408,
+     0.341
+    ],
+    "recent_gain_mean": 0.574,
+    "recent_gain_min": 0.341,
+    "recent_gain_max": 0.925,
+    "recent_gain_slope": -0.1964,
+    "average_gain_of_first_acquisitions": 0.574,
+    "average_gain_of_last_acquisitions": 0.574,
+    "recent_gain_as_percent_of_initial_gains": 100.0,
+    "new_cheap_clusters_found_in_last_4": 4,
+    "cheap_cluster_coverage_percent": 3.9,
+    "spatial_coverage_percent": 12.5
+   },
+   "recent_information_gains": [
+    0.925,
+    0.622,
+    0.408,
+    0.341
+   ],
+   "recent_gain_mean": 0.574,
+   "recent_gain_percent_of_initial": 100.0,
+   "recent_gain_slope": -0.1964,
+   "mean_pairwise_uni_similarity": 0.313,
+   "cheap_cluster_coverage": 0.039,
+   "spatial_coverage": 0.125,
+   "stop_allowed": false,
+   "stop_probability": null,
+   "halt_confidence": null,
+   "options": {
+    "A": "spatial_far",
+    "B": "undercovered_region",
+    "C": "cheap_novelty",
+    "D": "largest_cluster"
+   },
+   "candidates": {
+    "A": {
+     "cluster_coverage_percent": 0.3,
+     "cheap_novelty": 0.85,
+     "distance_from_nearest_acquired": 0.46,
+     "tissue_fraction": 0.37,
+     "entropy": 0.69,
+     "representativeness": 0.62,
+     "why_shortlisted": "spatially farthest from acquired evidence",
+     "exploration_score": 1.659
+    },
+    "B": {
+     "cluster_coverage_percent": 0.7,
+     "cheap_novelty": 0.51,
+     "distance_from_nearest_acquired": 0.37,
+     "tissue_fraction": 0.99,
+     "entropy": 0.92,
+     "representativeness": 0.65,
+     "why_shortlisted": "under-covered neighbourhood",
+     "exploration_score": 2.026
+    },
+    "C": {
+     "cluster_coverage_percent": 0.2,
+     "cheap_novelty": 1.0,
+     "distance_from_nearest_acquired": 0.21,
+     "tissue_fraction": 0.75,
+     "entropy": 0.8,
+     "representativeness": 0.56,
+     "why_shortlisted": "highest cheap-feature novelty",
+     "exploration_score": 1.862
+    },
+    "D": {
+     "cluster_coverage_percent": 2.2,
+     "cheap_novelty": 0.31,
+     "distance_from_nearest_acquired": 0.37,
+     "tissue_fraction": 1.0,
+     "entropy": 0.85,
+     "representativeness": 0.8,
+     "why_shortlisted": "largest unexplored tissue cluster",
+     "exploration_score": 2.282
+    }
+   },
+   "selected_option": "D",
+   "selected_strategy": "largest_cluster",
+   "route_probabilities": {
+    "A": 0.0735,
+    "B": 0.2363,
+    "C": 0.2341,
+    "D": 0.456
+   },
+   "route_confidence": 0.2747,
+   "overridden_by": null,
+   "decision": "D",
+   "latency_ms": 107.75,
+   "model_queried": true,
+   "acquired_patch_index": 6097,
+   "acquired_coord": [
+    15232,
+    41216
+   ],
+   "information_gain": 0.4067
+  },
+  {
+   "slide_id": "TCGA-85-A4CL-01Z-00-DX1.05BC31FF-3B88-489F-9BD2-5B2B31C72EDB",
+   "round": 6,
+   "uni_calls": 6,
+   "state": {
+    "uni_calls_used": 6,
+    "maximum_uni_calls": 16,
+    "remaining_candidate_count": 122,
+    "mean_pairwise_uni_similarity": 0.352,
+    "mean_pairwise_uni_distance": 0.648,
+    "information_gain_of_each_acquisition_so_far": [
+     1.0,
+     0.92,
+     0.62,
+     0.41,
+     0.34,
+     0.41
+    ],
+    "latest_information_gain": 0.407,
+    "recent_information_gains": [
+     0.622,
+     0.408,
+     0.341,
+     0.407
+    ],
+    "recent_gain_mean": 0.445,
+    "recent_gain_min": 0.341,
+    "recent_gain_max": 0.622,
+    "recent_gain_slope": -0.0714,
+    "average_gain_of_first_acquisitions": 0.574,
+    "average_gain_of_last_acquisitions": 0.445,
+    "recent_gain_as_percent_of_initial_gains": 77.5,
+    "new_cheap_clusters_found_in_last_4": 4,
+    "cheap_cluster_coverage_percent": 4.7,
+    "spatial_coverage_percent": 16.4
+   },
+   "recent_information_gains": [
+    0.622,
+    0.408,
+    0.341,
+    0.407
+   ],
+   "recent_gain_mean": 0.445,
+   "recent_gain_percent_of_initial": 77.5,
+   "recent_gain_slope": -0.0714,
+   "mean_pairwise_uni_similarity": 0.352,
+   "cheap_cluster_coverage": 0.047,
+   "spatial_coverage": 0.16399999999999998,
+   "stop_allowed": false,
+   "stop_probability": null,
+   "halt_confidence": null,
+   "options": {
+    "A": "spatial_far",
+    "B": "cheap_novelty",
+    "C": "undercovered_region",
+    "D": "largest_cluster"
+   },
+   "candidates": {
+    "A": {
+     "cluster_coverage_percent": 0.3,
+     "cheap_novelty": 0.81,
+     "distance_from_nearest_acquired": 0.39,
+     "tissue_fraction": 0.81,
+     "entropy": 0.87,
+     "representativeness": 0.55,
+     "why_shortlisted": "spatially farthest from acquired evidence",
+     "exploration_score": 2.018
+    },
+    "B": {
+     "cluster_coverage_percent": 0.2,
+     "cheap_novelty": 1.0,
+     "distance_from_nearest_acquired": 0.2,
+     "tissue_fraction": 0.75,
+     "entropy": 0.8,
+     "representativeness": 0.56,
+     "why_shortlisted": "highest cheap-feature novelty",
+     "exploration_score": 1.852
+    },
+    "C": {
+     "cluster_coverage_percent": 0.7,
+     "cheap_novelty": 0.51,
+     "distance_from_nearest_acquired": 0.21,
+     "tissue_fraction": 0.99,
+     "entropy": 0.92,
+     "representativeness": 0.65,
+     "why_shortlisted": "under-covered neighbourhood",
+     "exploration_score": 1.866
+    },
+    "D": {
+     "cluster_coverage_percent": 1.9,
+     "cheap_novelty": 0.2,
+     "distance_from_nearest_acquired": 0.06,
+     "tissue_fraction": 1.0,
+     "entropy": 0.88,
+     "representativeness": 0.7,
+     "why_shortlisted": "largest unexplored tissue cluster",
+     "exploration_score": 1.792
+    }
+   },
+   "selected_option": "A",
+   "selected_strategy": "spatial_far",
+   "route_probabilities": {
+    "A": 0.1604,
+    "B": 0.2855,
+    "C": 0.2954,
+    "D": 0.2586
+   },
+   "route_confidence": 0.0605,
+   "overridden_by": "low_confidence",
+   "decision": "A",
+   "latency_ms": 105.86,
+   "model_queried": true,
+   "acquired_patch_index": 302,
+   "acquired_coord": [
+    52416,
+    10304
+   ],
+   "information_gain": 0.7818
+  },
+  {
+   "slide_id": "TCGA-85-A4CL-01Z-00-DX1.05BC31FF-3B88-489F-9BD2-5B2B31C72EDB",
+   "round": 7,
+   "uni_calls": 7,
+   "state": {
+    "uni_calls_used": 7,
+    "maximum_uni_calls": 16,
+    "remaining_candidate_count": 121,
+    "mean_pairwise_uni_similarity": 0.291,
+    "mean_pairwise_uni_distance": 0.709,
+    "information_gain_of_each_acquisition_so_far": [
+     1.0,
+     0.92,
+     0.62,
+     0.41,
+     0.34,
+     0.41,
+     0.78
+    ],
+    "latest_information_gain": 0.782,
+    "recent_information_gains": [
+     0.408,
+     0.341,
+     0.407,
+     0.782
+    ],
+    "recent_gain_mean": 0.485,
+    "recent_gain_min": 0.341,
+    "recent_gain_max": 0.782,
+    "recent_gain_slope": 0.1186,
+    "average_gain_of_first_acquisitions": 0.574,
+    "average_gain_of_last_acquisitions": 0.485,
+    "recent_gain_as_percent_of_initial_gains": 84.4,
+    "new_cheap_clusters_found_in_last_4": 4,
+    "cheap_cluster_coverage_percent": 5.5,
+    "spatial_coverage_percent": 21.1
+   },
+   "recent_information_gains": [
+    0.408,
+    0.341,
+    0.407,
+    0.782
+   ],
+   "recent_gain_mean": 0.485,
+   "recent_gain_percent_of_initial": 84.4,
+   "recent_gain_slope": 0.1186,
+   "mean_pairwise_uni_similarity": 0.291,
+   "cheap_cluster_coverage": 0.055,
+   "spatial_coverage": 0.21100000000000002,
+   "stop_allowed": false,
+   "stop_probability": null,
+   "halt_confidence": null,
+   "options": {
+    "A": "largest_cluster",
+    "B": "spatial_far",
+    "C": "cheap_novelty",
+    "D": "undercovered_region"
+   },
+   "candidates": {
+    "A": {
+     "cluster_coverage_percent": 1.9,
+     "cheap_novelty": 0.2,
+     "distance_from_nearest_acquired": 0.06,
+     "tissue_fraction": 1.0,
+     "entropy": 0.88,
+     "representativeness": 0.7,
+     "why_shortlisted": "largest unexplored tissue cluster",
+     "exploration_score": 1.792
+    },
+    "B": {
+     "cluster_coverage_percent": 0.7,
+     "cheap_novelty": 0.8,
+     "distance_from_nearest_acquired": 0.33,
+     "tissue_fraction": 0.79,
+     "entropy": 0.91,
+     "representativeness": 0.61,
+     "why_shortlisted": "spatially farthest from acquired evidence",
+     "exploration_score": 2.081
+    },
+    "C": {
+     "cluster_coverage_percent": 0.2,
+     "cheap_novelty": 1.0,
+     "distance_from_nearest_acquired": 0.23,
+     "tissue_fraction": 0.27,
+     "entropy": 0.48,
+     "representativeness": 0.57,
+     "why_shortlisted": "highest cheap-feature novelty",
+     "exploration_score": 1.421
+    },
+    "D": {
+     "cluster_coverage_percent": 0.7,
+     "cheap_novelty": 0.51,
+     "distance_from_nearest_acquired": 0.21,
+     "tissue_fraction": 0.99,
+     "entropy": 0.92,
+     "representativeness": 0.65,
+     "why_shortlisted": "under-covered neighbourhood",
+     "exploration_score": 1.866
+    }
+   },
+   "selected_option": "B",
+   "selected_strategy": "spatial_far",
+   "route_probabilities": {
+    "A": 0.2205,
+    "B": 0.4472,
+    "C": 0.0796,
+    "D": 0.2527
+   },
+   "route_confidence": 0.2629,
+   "overridden_by": null,
+   "decision": "B",
+   "latency_ms": 108.18,
+   "model_queried": true,
+   "acquired_patch_index": 8657,
+   "acquired_coord": [
+    73472,
+    48832
+   ],
+   "information_gain": 0.7933
+  },
+  {
+   "slide_id": "TCGA-85-A4CL-01Z-00-DX1.05BC31FF-3B88-489F-9BD2-5B2B31C72EDB",
+   "round": 8,
+   "uni_calls": 8,
+   "state": {
+    "uni_calls_used": 8,
+    "maximum_uni_calls": 16,
+    "remaining_candidate_count": 120,
+    "mean_pairwise_uni_similarity": 0.257,
+    "mean_pairwise_uni_distance": 0.743,
+    "information_gain_of_each_acquisition_so_far": [
+     1.0,
+     0.92,
+     0.62,
+     0.41,
+     0.34,
+     0.41,
+     0.78,
+     0.79
+    ],
+    "latest_information_gain": 0.793,
+    "recent_information_gains": [
+     0.341,
+     0.407,
+     0.782,
+     0.793
+    ],
+    "recent_gain_mean": 0.581,
+    "recent_gain_min": 0.341,
+    "recent_gain_max": 0.793,
+    "recent_gain_slope": 0.1731,
+    "average_gain_of_first_acquisitions": 0.574,
+    "average_gain_of_last_acquisitions": 0.581,
+    "recent_gain_as_percent_of_initial_gains": 101.2,
+    "new_cheap_clusters_found_in_last_4": 4,
+    "cheap_cluster_coverage_percent": 6.2,
+    "spatial_coverage_percent": 25.0
+   },
+   "recent_information_gains": [
+    0.341,
+    0.407,
+    0.782,
+    0.793
+   ],
+   "recent_gain_mean": 0.581,
+   "recent_gain_percent_of_initial": 101.2,
+   "recent_gain_slope": 0.1731,
+   "mean_pairwise_uni_similarity": 0.257,
+   "cheap_cluster_coverage": 0.062,
+   "spatial_coverage": 0.25,
+   "stop_allowed": false,
+   "stop_probability": null,
+   "halt_confidence": null,
+   "options": {
+    "A": "undercovered_region",
+    "B": "largest_cluster",
+    "C": "cheap_novelty",
+    "D": "spatial_far"
+   },
+   "candidates": {
+    "A": {
+     "cluster_coverage_percent": 0.7,
+     "cheap_novelty": 0.51,
+     "distance_from_nearest_acquired": 0.21,
+     "tissue_fraction": 0.99,
+     "entropy": 0.92,
+     "representativeness": 0.65,
+     "why_shortlisted": "under-covered neighbourhood",
+     "exploration_score": 1.866
+    },
+    "B": {
+     "cluster_coverage_percent": 1.9,
+     "cheap_novelty": 0.2,
+     "distance_from_nearest_acquired": 0.06,
+     "tissue_fraction": 1.0,
+     "entropy": 0.88,
+     "representativeness": 0.7,
+     "why_shortlisted": "largest unexplored tissue cluster",
+     "exploration_score": 1.792
+    },
+    "C": {
+     "cluster_coverage_percent": 0.2,
+     "cheap_novelty": 1.0,
+     "distance_from_nearest_acquired": 0.23,
+     "tissue_fraction": 0.27,
+     "entropy": 0.48,
+     "representativeness": 0.57,
+     "why_shortlisted": "highest cheap-feature novelty",
+     "exploration_score": 1.421
+    },
+    "D": {
+     "cluster_coverage_percent": 0.6,
+     "cheap_novelty": 0.68,
+     "distance_from_nearest_acquired": 0.27,
+     "tissue_fraction": 0.93,
+     "entropy": 0.88,
+     "representativeness": 0.6,
+     "why_shortlisted": "spatially farthest from acquired evidence",
+     "exploration_score": 1.972
+    }
+   },
+   "selected_option": "D",
+   "selected_strategy": "spatial_far",
+   "route_probabilities": {
+    "A": 0.1119,
+    "B": 0.1979,
+    "C": 0.0975,
+    "D": 0.5927
+   },
+   "route_confidence": 0.4569,
+   "overridden_by": null,
+   "decision": "D",
+   "latency_ms": 104.24,
+   "model_queried": true,
+   "acquired_patch_index": 10594,
+   "acquired_coord": [
+    10752,
+    58688
+   ],
+   "information_gain": 0.8013
+  },
+  {
+   "slide_id": "TCGA-85-A4CL-01Z-00-DX1.05BC31FF-3B88-489F-9BD2-5B2B31C72EDB",
+   "round": 9,
+   "uni_calls": 9,
+   "state": {
+    "uni_calls_used": 9,
+    "maximum_uni_calls": 16,
+    "remaining_candidate_count": 119,
+    "mean_pairwise_uni_similarity": 0.233,
+    "mean_pairwise_uni_distance": 0.767,
+    "information_gain_of_each_acquisition_so_far": [
+     1.0,
+     0.92,
+     0.62,
+     0.41,
+     0.34,
+     0.41,
+     0.78,
+     0.79,
+     0.8
+    ],
+    "latest_information_gain": 0.801,
+    "recent_information_gains": [
+     0.407,
+     0.782,
+     0.793,
+     0.801
+    ],
+    "recent_gain_mean": 0.696,
+    "recent_gain_min": 0.407,
+    "recent_gain_max": 0.801,
+    "recent_gain_slope": 0.1195,
+    "average_gain_of_first_acquisitions": 0.574,
+    "average_gain_of_last_acquisitions": 0.696,
+    "recent_gain_as_percent_of_initial_gains": 121.2,
+    "new_cheap_clusters_found_in_last_4": 4,
+    "cheap_cluster_coverage_percent": 7.0,
+    "spatial_coverage_percent": 26.6
+   },
+   "recent_information_gains": [
+    0.407,
+    0.782,
+    0.793,
+    0.801
+   ],
+   "recent_gain_mean": 0.696,
+   "recent_gain_percent_of_initial": 121.2,
+   "recent_gain_slope": 0.1195,
+   "mean_pairwise_uni_similarity": 0.233,
+   "cheap_cluster_coverage": 0.07,
+   "spatial_coverage": 0.266,
+   "stop_allowed": false,
+   "stop_probability": null,
+   "halt_confidence": null,
+   "options": {
+    "A": "largest_cluster",
+    "B": "cheap_novelty",
+    "C": "undercovered_region",
+    "D": "spatial_far"
+   },
+   "candidates": {
+    "A": {
+     "cluster_coverage_percent": 1.9,
+     "cheap_novelty": 0.2,
+     "distance_from_nearest_acquired": 0.06,
+     "tissue_fraction": 1.0,
+     "entropy": 0.88,
+     "representativeness": 0.7,
+     "why_shortlisted": "largest unexplored tissue cluster",
+     "exploration_score": 1.792
+    },
+    "B": {
+     "cluster_coverage_percent": 0.2,
+     "cheap_novelty": 1.0,
+     "distance_from_nearest_acquired": 0.23,
+     "tissue_fraction": 0.27,
+     "entropy": 0.48,
+     "representativeness": 0.57,
+     "why_shortlisted": "highest cheap-feature novelty",
+     "exploration_score": 1.421
+    },
+    "C": {
+     "cluster_coverage_percent": 1.0,
+     "cheap_novelty": 0.45,
+     "distance_from_nearest_acquired": 0.11,
+     "tissue_fraction": 0.97,
+     "entropy": 0.94,
+     "representativeness": 0.61,
+     "why_shortlisted": "under-covered neighbourhood",
+     "exploration_score": 1.801
+    },
+    "D": {
+     "cluster_coverage_percent": 0.3,
+     "cheap_novelty": 0.51,
+     "distance_from_nearest_acquired": 0.21,
+     "tissue_fraction": 0.45,
+     "entropy": 0.66,
+     "representativeness": 0.62,
+     "why_shortlisted": "spatially farthest from acquired evidence",
+     "exploration_score": 1.127
+    }
+   },
+   "selected_option": "A",
+   "selected_strategy": "largest_cluster",
+   "route_probabilities": {
+    "A": 0.436,
+    "B": 0.1335,
+    "C": 0.3616,
+    "D": 0.0688
+   },
+   "route_confidence": 0.2481,
+   "overridden_by": null,
+   "decision": "A",
+   "latency_ms": 103.92,
+   "model_queried": true,
+   "acquired_patch_index": 7213,
+   "acquired_coord": [
+    17024,
+    44800
+   ],
+   "information_gain": 0.2944
+  },
+  {
+   "slide_id": "TCGA-85-A4CL-01Z-00-DX1.05BC31FF-3B88-489F-9BD2-5B2B31C72EDB",
+   "round": 10,
+   "uni_calls": 10,
+   "state": {
+    "uni_calls_used": 10,
+    "maximum_uni_calls": 16,
+    "remaining_candidate_count": 118,
+    "mean_pairwise_uni_similarity": 0.262,
+    "mean_pairwise_uni_distance": 0.738,
+    "information_gain_of_each_acquisition_so_far": [
+     1.0,
+     0.92,
+     0.62,
+     0.41,
+     0.34,
+     0.41,
+     0.78,
+     0.79,
+     0.8,
+     0.29
+    ],
+    "latest_information_gain": 0.294,
+    "recent_information_gains": [
+     0.782,
+     0.793,
+     0.801,
+     0.294
+    ],
+    "recent_gain_mean": 0.668,
+    "recent_gain_min": 0.294,
+    "recent_gain_max": 0.801,
+    "recent_gain_slope": -0.1454,
+    "average_gain_of_first_acquisitions": 0.574,
+    "average_gain_of_last_acquisitions": 0.668,
+    "recent_gain_as_percent_of_initial_gains": 116.3,
+    "new_cheap_clusters_found_in_last_4": 4,
+    "cheap_cluster_coverage_percent": 7.8,
+    "spatial_coverage_percent": 27.3
+   },
+   "recent_information_gains": [
+    0.782,
+    0.793,
+    0.801,
+    0.294
+   ],
+   "recent_gain_mean": 0.668,
+   "recent_gain_percent_of_initial": 116.3,
+   "recent_gain_slope": -0.1454,
+   "mean_pairwise_uni_similarity": 0.262,
+   "cheap_cluster_coverage": 0.078,
+   "spatial_coverage": 0.273,
+   "stop_allowed": false,
+   "stop_probability": null,
+   "halt_confidence": null,
+   "options": {
+    "A": "spatial_far",
+    "B": "cheap_novelty",
+    "C": "undercovered_region",
+    "D": "largest_cluster"
+   },
+   "candidates": {
+    "A": {
+     "cluster_coverage_percent": 0.3,
+     "cheap_novelty": 0.51,
+     "distance_from_nearest_acquired": 0.21,
+     "tissue_fraction": 0.45,
+     "entropy": 0.66,
+     "representativeness": 0.62,
+     "why_shortlisted": "spatially farthest from acquired evidence",
+     "exploration_score": 1.127
+    },
+    "B": {
+     "cluster_coverage_percent": 0.2,
+     "cheap_novelty": 1.0,
+     "distance_from_nearest_acquired": 0.23,
+     "tissue_fraction": 0.27,
+     "entropy": 0.48,
+     "representativeness": 0.57,
+     "why_shortlisted": "highest cheap-feature novelty",
+     "exploration_score": 1.421
+    },
+    "C": {
+     "cluster_coverage_percent": 1.0,
+     "cheap_novelty": 0.45,
+     "distance_from_nearest_acquired": 0.11,
+     "tissue_fraction": 0.97,
+     "entropy": 0.94,
+     "representativeness": 0.61,
+     "why_shortlisted": "under-covered neighbourhood",
+     "exploration_score": 1.801
+    },
+    "D": {
+     "cluster_coverage_percent": 1.8,
+     "cheap_novelty": 0.19,
+     "distance_from_nearest_acquired": 0.05,
+     "tissue_fraction": 1.0,
+     "entropy": 0.86,
+     "representativeness": 0.73,
+     "why_shortlisted": "largest unexplored tissue cluster",
+     "exploration_score": 1.729
+    }
+   },
+   "selected_option": "D",
+   "selected_strategy": "largest_cluster",
+   "route_probabilities": {
+    "A": 0.0787,
+    "B": 0.1109,
+    "C": 0.2679,
+    "D": 0.5426
+   },
+   "route_confidence": 0.3901,
+   "overridden_by": null,
+   "decision": "D",
+   "latency_ms": 104.34,
+   "model_queried": true,
+   "acquired_patch_index": 6597,
+   "acquired_coord": [
+    50176,
+    42560
+   ],
+   "information_gain": 0.458
+  },
+  {
+   "slide_id": "TCGA-85-A4CL-01Z-00-DX1.05BC31FF-3B88-489F-9BD2-5B2B31C72EDB",
+   "round": 11,
+   "uni_calls": 11,
+   "state": {
+    "uni_calls_used": 11,
+    "maximum_uni_calls": 16,
+    "remaining_candidate_count": 117,
+    "mean_pairwise_uni_similarity": 0.273,
+    "mean_pairwise_uni_distance": 0.727,
+    "information_gain_of_each_acquisition_so_far": [
+     1.0,
+     0.92,
+     0.62,
+     0.41,
+     0.34,
+     0.41,
+     0.78,
+     0.79,
+     0.8,
+     0.29,
+     0.46
+    ],
+    "latest_information_gain": 0.458,
+    "recent_information_gains": [
+     0.793,
+     0.801,
+     0.294,
+     0.458
+    ],
+    "recent_gain_mean": 0.587,
+    "recent_gain_min": 0.294,
+    "recent_gain_max": 0.801,
+    "recent_gain_slope": -0.1513,
+    "average_gain_of_first_acquisitions": 0.574,
+    "average_gain_of_last_acquisitions": 0.587,
+    "recent_gain_as_percent_of_initial_gains": 102.2,
+    "new_cheap_clusters_found_in_last_4": 4,
+    "cheap_cluster_coverage_percent": 8.6,
+    "spatial_coverage_percent": 28.1
+   },
+   "recent_information_gains": [
+    0.793,
+    0.801,
+    0.294,
+    0.458
+   ],
+   "recent_gain_mean": 0.587,
+   "recent_gain_percent_of_initial": 102.2,
+   "recent_gain_slope": -0.1513,
+   "mean_pairwise_uni_similarity": 0.273,
+   "cheap_cluster_coverage": 0.086,
+   "spatial_coverage": 0.281,
+   "stop_allowed": false,
+   "stop_probability": null,
+   "halt_confidence": null,
+   "options": {
+    "A": "spatial_far",
+    "B": "cheap_novelty",
+    "C": "largest_cluster",
+    "D": "undercovered_region"
+   },
+   "candidates": {
+    "A": {
+     "cluster_coverage_percent": 0.3,
+     "cheap_novelty": 0.51,
+     "distance_from_nearest_acquired": 0.21,
+     "tissue_fraction": 0.45,
+     "entropy": 0.66,
+     "representativeness": 0.62,
+     "why_shortlisted": "spatially farthest from acquired evidence",
+     "exploration_score": 1.127
+    },
+    "B": {
+     "cluster_coverage_percent": 0.2,
+     "cheap_novelty": 1.0,
+     "distance_from_nearest_acquired": 0.23,
+     "tissue_fraction": 0.27,
+     "entropy": 0.48,
+     "representativeness": 0.57,
+     "why_shortlisted": "highest cheap-feature novelty",
+     "exploration_score": 1.421
+    },
+    "C": {
+     "cluster_coverage_percent": 1.7,
+     "cheap_novelty": 0.19,
+     "distance_from_nearest_acquired": 0.1,
+     "tissue_fraction": 1.0,
+     "entropy": 0.89,
+     "representativeness": 0.81,
+     "why_shortlisted": "largest unexplored tissue cluster",
+     "exploration_score": 1.761
+    },
+    "D": {
+     "cluster_coverage_percent": 1.0,
+     "cheap_novelty": 0.45,
+     "distance_from_nearest_acquired": 0.11,
+     "tissue_fraction": 0.97,
+     "entropy": 0.94,
+     "representativeness": 0.61,
+     "why_shortlisted": "under-covered neighbourhood",
+     "exploration_score": 1.801
+    }
+   },
+   "selected_option": "D",
+   "selected_strategy": "undercovered_region",
+   "route_probabilities": {
+    "A": 0.0456,
+    "B": 0.096,
+    "C": 0.4202,
+    "D": 0.4383
+   },
+   "route_confidence": 0.2511,
+   "overridden_by": null,
+   "decision": "D",
+   "latency_ms": 105.15,
+   "model_queried": true,
+   "acquired_patch_index": 9197,
+   "acquired_coord": [
+    64960,
+    50624
+   ],
+   "information_gain": 0.4929
+  },
+  {
+   "slide_id": "TCGA-85-A4CL-01Z-00-DX1.05BC31FF-3B88-489F-9BD2-5B2B31C72EDB",
+   "round": 12,
+   "uni_calls": 12,
+   "state": {
+    "uni_calls_used": 12,
+    "maximum_uni_calls": 16,
+    "remaining_candidate_count": 116,
+    "mean_pairwise_uni_similarity": 0.253,
+    "mean_pairwise_uni_distance": 0.747,
+    "information_gain_of_each_acquisition_so_far": [
+     1.0,
+     0.92,
+     0.62,
+     0.41,
+     0.34,
+     0.41,
+     0.78,
+     0.79,
+     0.8,
+     0.29,
+     0.46,
+     0.49
+    ],
+    "latest_information_gain": 0.493,
+    "recent_information_gains": [
+     0.801,
+     0.294,
+     0.458,
+     0.493
+    ],
+    "recent_gain_mean": 0.512,
+    "recent_gain_min": 0.294,
+    "recent_gain_max": 0.801,
+    "recent_gain_slope": -0.0762,
+    "average_gain_of_first_acquisitions": 0.574,
+    "average_gain_of_last_acquisitions": 0.512,
+    "recent_gain_as_percent_of_initial_gains": 89.1,
+    "new_cheap_clusters_found_in_last_4": 4,
+    "cheap_cluster_coverage_percent": 9.4,
+    "spatial_coverage_percent": 32.8
+   },
+   "recent_information_gains": [
+    0.801,
+    0.294,
+    0.458,
+    0.493
+   ],
+   "recent_gain_mean": 0.512,
+   "recent_gain_percent_of_initial": 89.1,
+   "recent_gain_slope": -0.0762,
+   "mean_pairwise_uni_similarity": 0.253,
+   "cheap_cluster_coverage": 0.094,
+   "spatial_coverage": 0.32799999999999996,
+   "stop_allowed": false,
+   "stop_probability": null,
+   "halt_confidence": null,
+   "options": {
+    "A": "cheap_novelty",
+    "B": "spatial_far",
+    "C": "undercovered_region",
+    "D": "largest_cluster"
+   },
+   "candidates": {
+    "A": {
+     "cluster_coverage_percent": 0.2,
+     "cheap_novelty": 1.0,
+     "distance_from_nearest_acquired": 0.23,
+     "tissue_fraction": 0.27,
+     "entropy": 0.48,
+     "representativeness": 0.57,
+     "why_shortlisted": "highest cheap-feature novelty",
+     "exploration_score": 1.421
+    },
+    "B": {
+     "cluster_coverage_percent": 0.3,
+     "cheap_novelty": 0.51,
+     "distance_from_nearest_acquired": 0.21,
+     "tissue_fraction": 0.45,
+     "entropy": 0.66,
+     "representativeness": 0.62,
+     "why_shortlisted": "spatially farthest from acquired evidence",
+     "exploration_score": 1.127
+    },
+    "C": {
+     "cluster_coverage_percent": 0.5,
+     "cheap_novelty": 0.71,
+     "distance_from_nearest_acquired": 0.17,
+     "tissue_fraction": 0.99,
+     "entropy": 0.9,
+     "representativeness": 0.66,
+     "why_shortlisted": "under-covered neighbourhood",
+     "exploration_score": 1.936
+    },
+    "D": {
+     "cluster_coverage_percent": 1.7,
+     "cheap_novelty": 0.19,
+     "distance_from_nearest_acquired": 0.1,
+     "tissue_fraction": 1.0,
+     "entropy": 0.89,
+     "representativeness": 0.81,
+     "why_shortlisted": "largest unexplored tissue cluster",
+     "exploration_score": 1.761
+    }
+   },
+   "selected_option": "D",
+   "selected_strategy": "largest_cluster",
+   "route_probabilities": {
+    "A": 0.0695,
+    "B": 0.1074,
+    "C": 0.3156,
+    "D": 0.5076
+   },
+   "route_confidence": 0.3434,
+   "overridden_by": null,
+   "decision": "D",
+   "latency_ms": 104.59,
+   "model_queried": true,
+   "acquired_patch_index": 8546,
+   "acquired_coord": [
+    23744,
+    48832
+   ],
+   "information_gain": 0.3152
+  },
+  {
+   "slide_id": "TCGA-85-A4CL-01Z-00-DX1.05BC31FF-3B88-489F-9BD2-5B2B31C72EDB",
+   "round": 13,
+   "uni_calls": 13,
+   "state": {
+    "uni_calls_used": 13,
+    "maximum_uni_calls": 16,
+    "remaining_candidate_count": 115,
+    "mean_pairwise_uni_similarity": 0.27,
+    "mean_pairwise_uni_distance": 0.73,
+    "information_gain_of_each_acquisition_so_far": [
+     1.0,
+     0.92,
+     0.62,
+     0.41,
+     0.34,
+     0.41,
+     0.78,
+     0.79,
+     0.8,
+     0.29,
+     0.46,
+     0.49,
+     0.32
+    ],
+    "latest_information_gain": 0.315,
+    "recent_information_gains": [
+     0.294,
+     0.458,
+     0.493,
+     0.315
+    ],
+    "recent_gain_mean": 0.39,
+    "recent_gain_min": 0.294,
+    "recent_gain_max": 0.493,
+    "recent_gain_slope": 0.0097,
+    "average_gain_of_first_acquisitions": 0.574,
+    "average_gain_of_last_acquisitions": 0.39,
+    "recent_gain_as_percent_of_initial_gains": 67.9,
+    "new_cheap_clusters_found_in_last_4": 4,
+    "cheap_cluster_coverage_percent": 10.2,
+    "spatial_coverage_percent": 37.5
+   },
+   "recent_information_gains": [
+    0.294,
+    0.458,
+    0.493,
+    0.315
+   ],
+   "recent_gain_mean": 0.39,
+   "recent_gain_percent_of_initial": 67.9,
+   "recent_gain_slope": 0.0097,
+   "mean_pairwise_uni_similarity": 0.27,
+   "cheap_cluster_coverage": 0.102,
+   "spatial_coverage": 0.375,
+   "stop_allowed": false,
+   "stop_probability": null,
+   "halt_confidence": null,
+   "options": {
+    "A": "largest_cluster",
+    "B": "undercovered_region",
+    "C": "spatial_far",
+    "D": "cheap_novelty"
+   },
+   "candidates": {
+    "A": {
+     "cluster_coverage_percent": 1.6,
+     "cheap_novelty": 0.24,
+     "distance_from_nearest_acquired": 0.11,
+     "tissue_fraction": 0.99,
+     "entropy": 0.9,
+     "representativeness": 0.67,
+     "why_shortlisted": "largest unexplored tissue cluster",
+     "exploration_score": 1.799
+    },
+    "B": {
+     "cluster_coverage_percent": 0.5,
+     "cheap_novelty": 0.71,
+     "distance_from_nearest_acquired": 0.17,
+     "tissue_fraction": 0.99,
+     "entropy": 0.9,
+     "representativeness": 0.66,
+     "why_shortlisted": "under-covered neighbourhood",
+     "exploration_score": 1.936
+    },
+    "C": {
+     "cluster_coverage_percent": 0.3,
+     "cheap_novelty": 0.51,
+     "distance_from_nearest_acquired": 0.21,
+     "tissue_fraction": 0.45,
+     "entropy": 0.66,
+     "representativeness": 0.62,
+     "why_shortlisted": "spatially farthest from acquired evidence",
+     "exploration_score": 1.127
+    },
+    "D": {
+     "cluster_coverage_percent": 0.2,
+     "cheap_novelty": 1.0,
+     "distance_from_nearest_acquired": 0.23,
+     "tissue_fraction": 0.27,
+     "entropy": 0.48,
+     "representativeness": 0.57,
+     "why_shortlisted": "highest cheap-feature novelty",
+     "exploration_score": 1.421
+    }
+   },
+   "selected_option": "B",
+   "selected_strategy": "undercovered_region",
+   "route_probabilities": {
+    "A": 0.3614,
+    "B": 0.4359,
+    "C": 0.0835,
+    "D": 0.1192
+   },
+   "route_confidence": 0.2479,
+   "overridden_by": null,
+   "decision": "B",
+   "latency_ms": 112.7,
+   "model_queried": true,
+   "acquired_patch_index": 1001,
+   "acquired_coord": [
+    40320,
+    16128
+   ],
+   "information_gain": 0.7963
+  },
+  {
+   "slide_id": "TCGA-85-A4CL-01Z-00-DX1.05BC31FF-3B88-489F-9BD2-5B2B31C72EDB",
+   "round": 14,
+   "uni_calls": 14,
+   "state": {
+    "uni_calls_used": 14,
+    "maximum_uni_calls": 16,
+    "remaining_candidate_count": 114,
+    "mean_pairwise_uni_similarity": 0.251,
+    "mean_pairwise_uni_distance": 0.749,
+    "information_gain_of_each_acquisition_so_far": [
+     1.0,
+     0.92,
+     0.62,
+     0.41,
+     0.34,
+     0.41,
+     0.78,
+     0.79,
+     0.8,
+     0.29,
+     0.46,
+     0.49,
+     0.32,
+     0.8
+    ],
+    "latest_information_gain": 0.796,
+    "recent_information_gains": [
+     0.458,
+     0.493,
+     0.315,
+     0.796
+    ],
+    "recent_gain_mean": 0.516,
+    "recent_gain_min": 0.315,
+    "recent_gain_max": 0.796,
+    "recent_gain_slope": 0.0837,
+    "average_gain_of_first_acquisitions": 0.574,
+    "average_gain_of_last_acquisitions": 0.516,
+    "recent_gain_as_percent_of_initial_gains": 89.8,
+    "new_cheap_clusters_found_in_last_4": 4,
+    "cheap_cluster_coverage_percent": 10.9,
+    "spatial_coverage_percent": 43.8
+   },
+   "recent_information_gains": [
+    0.458,
+    0.493,
+    0.315,
+    0.796
+   ],
+   "recent_gain_mean": 0.516,
+   "recent_gain_percent_of_initial": 89.8,
+   "recent_gain_slope": 0.0837,
+   "mean_pairwise_uni_similarity": 0.251,
+   "cheap_cluster_coverage": 0.109,
+   "spatial_coverage": 0.43799999999999994,
+   "stop_allowed": false,
+   "stop_probability": null,
+   "halt_confidence": null,
+   "options": {
+    "A": "undercovered_region",
+    "B": "spatial_far",
+    "C": "cheap_novelty",
+    "D": "largest_cluster"
+   },
+   "candidates": {
+    "A": {
+     "cluster_coverage_percent": 1.2,
+     "cheap_novelty": 0.53,
+     "distance_from_nearest_acquired": 0.02,
+     "tissue_fraction": 0.98,
+     "entropy": 0.9,
+     "representativeness": 0.62,
+     "why_shortlisted": "under-covered neighbourhood",
+     "exploration_score": 1.835
+    },
+    "B": {
+     "cluster_coverage_percent": 0.3,
+     "cheap_novelty": 0.51,
+     "distance_from_nearest_acquired": 0.21,
+     "tissue_fraction": 0.45,
+     "entropy": 0.66,
+     "representativeness": 0.62,
+     "why_shortlisted": "spatially farthest from acquired evidence",
+     "exploration_score": 1.127
+    },
+    "C": {
+     "cluster_coverage_percent": 0.2,
+     "cheap_novelty": 1.0,
+     "distance_from_nearest_acquired": 0.23,
+     "tissue_fraction": 0.27,
+     "entropy": 0.48,
+     "representativeness": 0.57,
+     "why_shortlisted": "highest cheap-feature novelty",
+     "exploration_score": 1.421
+    },
+    "D": {
+     "cluster_coverage_percent": 1.6,
+     "cheap_novelty": 0.24,
+     "distance_from_nearest_acquired": 0.11,
+     "tissue_fraction": 0.99,
+     "entropy": 0.9,
+     "representativeness": 0.67,
+     "why_shortlisted": "largest unexplored tissue cluster",
+     "exploration_score": 1.799
+    }
+   },
+   "selected_option": "D",
+   "selected_strategy": "largest_cluster",
+   "route_probabilities": {
+    "A": 0.1179,
+    "B": 0.0691,
+    "C": 0.1431,
+    "D": 0.6699
+   },
+   "route_confidence": 0.5599,
+   "overridden_by": null,
+   "decision": "D",
+   "latency_ms": 107.15,
+   "model_queried": true,
+   "acquired_patch_index": 8615,
+   "acquired_coord": [
+    54656,
+    48832
+   ],
+   "information_gain": 0.3984
+  },
+  {
+   "slide_id": "TCGA-85-A4CL-01Z-00-DX1.05BC31FF-3B88-489F-9BD2-5B2B31C72EDB",
+   "round": 15,
+   "uni_calls": 15,
+   "state": {
+    "uni_calls_used": 15,
+    "maximum_uni_calls": 16,
+    "remaining_candidate_count": 113,
+    "mean_pairwise_uni_similarity": 0.262,
+    "mean_pairwise_uni_distance": 0.738,
+    "information_gain_of_each_acquisition_so_far": [
+     1.0,
+     0.92,
+     0.62,
+     0.41,
+     0.34,
+     0.41,
+     0.78,
+     0.79,
+     0.8,
+     0.29,
+     0.46,
+     0.49,
+     0.32,
+     0.8,
+     0.4
+    ],
+    "latest_information_gain": 0.398,
+    "recent_information_gains": [
+     0.493,
+     0.315,
+     0.796,
+     0.398
+    ],
+    "recent_gain_mean": 0.501,
+    "recent_gain_min": 0.315,
+    "recent_gain_max": 0.796,
+    "recent_gain_slope": 0.0198,
+    "average_gain_of_first_acquisitions": 0.574,
+    "average_gain_of_last_acquisitions": 0.501,
+    "recent_gain_as_percent_of_initial_gains": 87.2,
+    "new_cheap_clusters_found_in_last_4": 4,
+    "cheap_cluster_coverage_percent": 11.7,
+    "spatial_coverage_percent": 44.5
+   },
+   "recent_information_gains": [
+    0.493,
+    0.315,
+    0.796,
+    0.398
+   ],
+   "recent_gain_mean": 0.501,
+   "recent_gain_percent_of_initial": 87.2,
+   "recent_gain_slope": 0.0198,
+   "mean_pairwise_uni_similarity": 0.262,
+   "cheap_cluster_coverage": 0.11699999999999999,
+   "spatial_coverage": 0.445,
+   "stop_allowed": false,
+   "stop_probability": null,
+   "halt_confidence": null,
+   "options": {
+    "A": "largest_cluster",
+    "B": "undercovered_region",
+    "C": "cheap_novelty",
+    "D": "spatial_far"
+   },
+   "candidates": {
+    "A": {
+     "cluster_coverage_percent": 1.6,
+     "cheap_novelty": 0.24,
+     "distance_from_nearest_acquired": 0.04,
+     "tissue_fraction": 0.99,
+     "entropy": 0.9,
+     "representativeness": 0.65,
+     "why_shortlisted": "largest unexplored tissue cluster",
+     "exploration_score": 1.723
+    },
+    "B": {
+     "cluster_coverage_percent": 1.2,
+     "cheap_novelty": 0.53,
+     "distance_from_nearest_acquired": 0.02,
+     "tissue_fraction": 0.98,
+     "entropy": 0.9,
+     "representativeness": 0.62,
+     "why_shortlisted": "under-covered neighbourhood",
+     "exploration_score": 1.835
+    },
+    "C": {
+     "cluster_coverage_percent": 0.2,
+     "cheap_novelty": 1.0,
+     "distance_from_nearest_acquired": 0.23,
+     "tissue_fraction": 0.27,
+     "entropy": 0.48,
+     "representativeness": 0.57,
+     "why_shortlisted": "highest cheap-feature novelty",
+     "exploration_score": 1.421
+    },
+    "D": {
+     "cluster_coverage_percent": 0.3,
+     "cheap_novelty": 0.51,
+     "distance_from_nearest_acquired": 0.21,
+     "tissue_fraction": 0.45,
+     "entropy": 0.66,
+     "representativeness": 0.62,
+     "why_shortlisted": "spatially farthest from acquired evidence",
+     "exploration_score": 1.127
+    }
+   },
+   "selected_option": "B",
+   "selected_strategy": "undercovered_region",
+   "route_probabilities": {
+    "A": 0.3155,
+    "B": 0.4286,
+    "C": 0.1622,
+    "D": 0.0938
+   },
+   "route_confidence": 0.2381,
+   "overridden_by": null,
+   "decision": "B",
+   "latency_ms": 104.85,
+   "model_queried": true,
+   "acquired_patch_index": 938,
+   "acquired_coord": [
+    41664,
+    15680
+   ],
+   "information_gain": 0.4267
+  },
+  {
+   "slide_id": "TCGA-85-A4CL-01Z-00-DX1.05BC31FF-3B88-489F-9BD2-5B2B31C72EDB",
+   "round": 16,
+   "uni_calls": 16,
+   "decision": "STOP",
+   "overridden_by": "max_budget",
+   "stop_allowed": false,
+   "stop_probability": null,
+   "model_queried": false,
+   "latency_ms": 0.0,
+   "options": {},
+   "selected_option": null,
+   "selected_strategy": null,
+   "state": {
+    "uni_calls_used": 16,
+    "maximum_uni_calls": 16,
+    "remaining_candidate_count": 112,
+    "mean_pairwise_uni_similarity": 0.246,
+    "mean_pairwise_uni_distance": 0.754,
+    "information_gain_of_each_acquisition_so_far": [
+     1.0,
+     0.92,
+     0.62,
+     0.41,
+     0.34,
+     0.41,
+     0.78,
+     0.79,
+     0.8,
+     0.29,
+     0.46,
+     0.49,
+     0.32,
+     0.8,
+     0.4,
+     0.43
+    ],
+    "latest_information_gain": 0.427,
+    "recent_information_gains": [
+     0.315,
+     0.796,
+     0.398,
+     0.427
+    ],
+    "recent_gain_mean": 0.484,
+    "recent_gain_min": 0.315,
+    "recent_gain_max": 0.796,
+    "recent_gain_slope": -0.0063,
+    "average_gain_of_first_acquisitions": 0.574,
+    "average_gain_of_last_acquisitions": 0.484,
+    "recent_gain_as_percent_of_initial_gains": 84.3,
+    "new_cheap_clusters_found_in_last_4": 4,
+    "cheap_cluster_coverage_percent": 12.5,
+    "spatial_coverage_percent": 44.5
+   },
+   "recent_information_gains": [
+    0.31519371271133423,
+    0.7962847352027893,
+    0.3984367847442627,
+    0.4267275333404541
+   ]
+  }
+ ]
+}

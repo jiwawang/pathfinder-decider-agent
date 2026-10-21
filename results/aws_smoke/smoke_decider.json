@@ -1,0 +1,22 @@
+{
+ "status": "PASS",
+ "model": "StrandsAgents/strands-decider-2B-qwen3.5-v1-2610",
+ "load_s": 6.1,
+ "choice": "A",
+ "probabilities": {
+  "A": 0.5888,
+  "B": 0.1998,
+  "C": 0.0583,
+  "D": 0.153
+ },
+ "confidence": 0.4518,
+ "latency_ms": {
+  "mean": 73.8,
+  "median": 73.4
+ },
+ "mapped_patch": "A->patch id resolved by the coordinator at runtime",
+ "test": "decider",
+ "timestamp_utc": "2026-10-20T15:16:13.487767+00:00",
+ "host": "<redacted>",
+ "region": ""
+}

@@ -1,0 +1,8 @@
+{
+ "status": "FAIL",
+ "error": "ValidationException: An error occurred (ValidationException) when calling the Converse operation: Operation not allowed",
+ "test": "bedrock",
+ "timestamp_utc": "2026-10-21T14:05:50.191707+00:00",
+ "host": "<redacted>",
+ "region": "us-east-1"
+}

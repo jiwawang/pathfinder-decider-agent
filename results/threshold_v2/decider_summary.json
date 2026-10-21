@@ -1,0 +1,21 @@
+{
+  "episodes": 1975,
+  "decisions": 34260,
+  "latency_ms": {
+    "mean": 0.08706542056074767,
+    "median": 0.01,
+    "p95": 0.04
+  },
+  "mean_confidence": 0.8586285244010995,
+  "low_confidence_rate": 0.0,
+  "mean_selected": 15.863291139240506,
+  "mean_examined": 17.41012658227848,
+  "mean_candidates": 32.0,
+  "selection_ratio_vs_all_patches": 0.000688578569424675,
+  "stopped_by_model_rate": 0.9772151898734177,
+  "action_distribution": {
+    "select": 0.9147694103911267,
+    "skip": 0.028633975481611208,
+    "stop": 0.056596614127262114
+  }
+}

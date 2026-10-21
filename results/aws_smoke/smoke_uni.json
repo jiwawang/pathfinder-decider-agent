@@ -1,0 +1,23 @@
+{
+ "status": "PASS",
+ "encoder": "hoptimus0",
+ "model": "hf-hub:bioptimus/H-optimus-0",
+ "license": "Apache-2.0",
+ "load_s": 12.6,
+ "shape": [
+  1536
+ ],
+ "finite": true,
+ "latency_ms_batch1": {
+  "mean": 16.1,
+  "median": 15.9
+ },
+ "patch": "patches/0000.png",
+ "slide": "TCGA-95-7043-01Z-00-DX1.AE0FD8AA-9B88-45FE-B247-402BED1285EF",
+ "reference_written": "<ARTIFACT_ROOT>/aws_demo/pathfinder-demo/slides/TCGA-95-7043-01Z-00-DX1.AE0FD8AA-9B88-45FE-B247-402BED1285EF/reference_embedding_hoptimus0.npz",
+ "gpu_memory_gb": 4.63,
+ "test": "uni",
+ "timestamp_utc": "2026-10-21T16:12:18.097096+00:00",
+ "host": "<redacted>",
+ "region": ""
+}

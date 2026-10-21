@@ -1,0 +1,13 @@
+# WP006 Task 1: LUAD (0) vs LUSC (1), frozen lung manifest (metadata/tcga_lung_manifest.csv, 100 per class).
+# Protocol inherited from configs/tcga_frozen.yaml / configs/default.yaml; this file maps paths and labels only.
+tcga:
+  task: task1_luad_lusc
+  label_map: {LUAD: 0, LUSC: 1}
+  manifest: metadata/tcga_lung_manifest.csv          # only manifest members enter the slide table
+  svs_dirs: {LUAD: <TCGA_ROOT>/LUAD/svs, LUSC: <TCGA_ROOT>/LUSC/svs}
+  job_dirs: {LUAD: <TCGA_ROOT>/LUAD/Patch_Trident_settings_2_hest, LUSC: <TCGA_ROOT>/LUSC/Patch_Trident_settings_2_hest}
+  coords_dir: 20x_224px_0px_overlap_tissue0.5
+  slide_table: metadata/tcga_task1_slides.csv
+  reader: {target_px: 224, target_mpp: 0.5, resample: LANCZOS, mpp_rule: "openslide mpp only; skip if missing or x/y differ > 1%"}
+  primary_budget: 16                                  # pre-specified main comparison point (WP006 section 10)
+  results_dir: results/tcga_generalization/task1_luad_lusc

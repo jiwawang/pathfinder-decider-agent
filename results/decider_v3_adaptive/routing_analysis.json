@@ -1,0 +1,30 @@
+{
+  "position_selection_pct": {
+    "A": 14.3,
+    "B": 24.2,
+    "C": 35.0,
+    "D": 26.5
+  },
+  "strategy_selection_pct": {
+    "largest_cluster": 62.5,
+    "cheap_novelty": 3.1,
+    "spatial_far": 17.5,
+    "undercovered_region": 17.0
+  },
+  "n_routing_decisions": 1603,
+  "all_decider_runs": {
+    "position_selection_pct": {
+      "A": 15.1,
+      "B": 23.9,
+      "C": 34.1,
+      "D": 26.9
+    },
+    "strategy_selection_pct": {
+      "largest_cluster": 61.3,
+      "cheap_novelty": 3.6,
+      "spatial_far": 17.8,
+      "undercovered_region": 17.4
+    },
+    "n": 4740
+  }
+}

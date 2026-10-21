@@ -1,0 +1,85 @@
+acquisition:
+  budgets:
+  - 4
+  - 8
+  - 16
+  - 32
+  - 64
+  candidate_pool_size: 128
+  diverse_similarity_threshold: 0.55
+  halt_criteria:
+    CONTINUE: 'target_budget_reached is false or acquired_evidence_is_diverse is false:
+      keep acquiring evidence'
+    STOP: 'target_budget_reached is true and acquired_evidence_is_diverse is true:
+      enough evidence has been collected, stop spending UNI compute'
+  halt_question: Should the agent stop acquiring UNI patches now, or continue with
+    one of the shortlisted candidates?
+  low_confidence_threshold: 0.15
+  max_uni_calls: 32
+  min_uni_calls: 8
+  question: Which candidate should receive the next expensive UNI inference? Prefer
+    a candidate that is novel and far from the evidence acquired so far, representative
+    of a large unexplored tissue region, and rich in tissue content.
+  router_backend: strands
+  seed: 0
+  shortlist_size: 4
+  spatial_coverage_radius: 0.08
+  stop_criterion: 'target_budget_reached is true and acquired_evidence_is_diverse
+    is true: enough evidence has been collected, stop spending UNI compute'
+  stop_mode: separate
+  target_uni_calls: 16
+adaptive:
+  fixed_budgets:
+  - 4
+  - 8
+  - 16
+  - 32
+  information_gain_window: 4
+  low_confidence_threshold: 0.15
+  max_uni_calls: 32
+  min_uni_calls: 4
+  saturation_thresholds:
+  - 0.25
+  - 0.3
+  - 0.35
+  - 0.4
+  - 0.45
+  shortlist_size: 4
+  shuffle_seed: 0
+  spatial_coverage_radius: 0.08
+classifier:
+  C: 1.0
+  pca_components: 0
+  standardize: true
+  type: logistic_regression
+evaluation:
+  folds: 5
+  random_k_repeats: 5
+  seeds:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+tcga:
+  coords_dir: 20x_224px_0px_overlap_tissue0.5
+  job_dirs:
+    COAD: <TCGA_ROOT>/COAD/Patch_Trident_settings_2_hest
+    KIRC: <TCGA_ROOT>/KIRC/Patch_Trident_settings_2_hest
+    LUAD: <TCGA_ROOT>/LUAD/Patch_Trident_settings_2_hest
+  label_map:
+    COAD: 0
+    KIRC: 1
+    LUAD: 2
+  reader:
+    mpp_rule: openslide mpp only; skip if missing or x/y differ > 1%
+    resample: LANCZOS
+    target_mpp: 0.5
+    target_px: 224
+  results_dir: results/tcga_generalization/task0_3class
+  slide_table: metadata/tcga_task0_slides.csv
+  svs_dirs:
+    COAD: <TCGA_ROOT>/COAD/svs
+    KIRC: <TCGA_ROOT>/KIRC/svs
+    LUAD: <TCGA_ROOT>/LUAD/svs
+  task: task0_3class

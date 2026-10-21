@@ -1,0 +1,24 @@
+{
+  "git_commit": "802256c36b1d07a1873766e639ceb01b62381608",
+  "git_branch": "experiment/tcga-generalization",
+  "git_dirty": true,
+  "experiment": "task1_luad_lusc",
+  "timestamp": "2026-10-19T15:06:30.072097",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "config_sha256": "bb03f8ebd8eb3bbe67c320a2bb8a2c66973436672af207be8a24dfd0edc35e67",
+  "base_config_sha256": "bc720bfe0ece45fe41808147b2e65a1d04e3baf3854678f895bdf8f49eef2f56",
+  "slide_table_sha256": "a6ccb64501be041a5bc6d0c85f6e05545f1680082acc7e6e6698aff2a654571f",
+  "n_slides": 198,
+  "labels": {
+    "0": 98,
+    "1": 100
+  },
+  "decider_model": "StrandsAgents/strands-decider-2B-qwen3.5-v1-2610",
+  "router": "strands"
+}

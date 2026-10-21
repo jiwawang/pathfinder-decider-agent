@@ -1,0 +1,68 @@
+aggregation:
+  pooling: mean
+bedrock:
+  max_tokens: 600
+  model_id_env: BEDROCK_MODEL_ID
+  region_env: AWS_REGION
+candidate_selection:
+  kmeans_n_init: 3
+  num_clusters: 32
+  seed: 0
+classifier:
+  C: 1.0
+  pca_components: 0
+  standardize: true
+  type: logistic_regression
+decider:
+  backend: threshold
+  candidate_order: priority
+  criteria:
+    SELECT: 'evidence_strength is at least 0.5 and novelty_vs_selected_evidence is
+      at least 0.4: strong, non-redundant evidence worth adding'
+    SKIP: 'evidence_strength is below 0.5 or novelty_vs_selected_evidence is below
+      0.4: weak or redundant, do not add'
+    STOP: 'target_budget_reached is true and remaining_candidates_are_weak is true:
+      the evidence set is complete, stop searching'
+  device: cuda
+  low_confidence_action: SKIP
+  low_confidence_threshold: 0.2
+  max_selected: 16
+  min_selected: 6
+  model_id: StrandsAgents/strands-decider-2B-qwen3.5-v1-2610
+  question: Which action should the evidence-selection agent take for this candidate?
+  target_selected: 12
+  threshold_policy:
+    select_min_novelty: 0.15
+    select_min_vote_confidence: 0.2
+    stop_min_novelty_seen: 0.1
+  weak_remaining_threshold: 0.3
+embeddings:
+  l2_normalize: true
+evaluation:
+  folds: 5
+  random_k_repeats: 5
+  seeds:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+knn:
+  bank: candidates
+  k: 15
+  metric: cosine
+labels:
+  class_0: Invalid
+  class_1: Effective
+  class_names:
+    0: non-responder (Invalid)
+    1: responder (Effective)
+paths:
+  candidates_dir: artifacts/candidates
+  embeddings_dir: artifacts/embeddings
+  features_root: <PRIVATE_COHORT_ROOT>
+  h5_root: <PRIVATE_COHORT_ROOT>
+  metadata_csv: metadata/slides.csv
+  results_dir: results
+  thumbnails_dir: artifacts/thumbnails
+  wsi_root: <PRIVATE_WSI_ROOT>

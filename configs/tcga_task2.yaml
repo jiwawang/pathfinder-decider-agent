@@ -1,0 +1,12 @@
+# WP006 Task 2 (only if Task 1 is complete and resources allow): KIRC (0) vs KIRP (1), frozen kidney manifest.
+tcga:
+  task: task2_kirc_kirp
+  label_map: {KIRC: 0, KIRP: 1}
+  manifest: metadata/tcga_kidney_manifest.csv
+  svs_dirs: {KIRC: <TCGA_ROOT>/KIRC/svs, KIRP: <TCGA_ROOT>/KIRP/svs}
+  job_dirs: {KIRC: <TCGA_ROOT>/KIRC/Patch_Trident_settings_2_hest, KIRP: <TCGA_ROOT>/KIRP/Patch_Trident_settings_2_hest}
+  coords_dir: 20x_224px_0px_overlap_tissue0.5
+  slide_table: metadata/tcga_task2_slides.csv
+  reader: {target_px: 224, target_mpp: 0.5, resample: LANCZOS, mpp_rule: "openslide mpp only; skip if missing or x/y differ > 1%"}
+  primary_budget: 16
+  results_dir: results/tcga_generalization/task2_kirc_kirp

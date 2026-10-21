@@ -1,0 +1,20 @@
+{
+  "run": "decider",
+  "slides": 79,
+  "decisions": 1370,
+  "latency_ms": {
+    "mean": 0.005623357664233576,
+    "median": 0.006,
+    "p95": 0.006
+  },
+  "mean_uni_calls": 16.354430379746834,
+  "min_uni_calls": 16,
+  "max_uni_calls": 32,
+  "mean_rounds": 17.341772151898734,
+  "stopped_by_model_rate": 0.9873417721518988,
+  "mean_confidence": 0.8499999999999998,
+  "low_confidence_rate": 0.0,
+  "mean_clusters_covered": 16.354430379746834,
+  "full_uni_calls_per_slide": 25033.278481012658,
+  "uni_calls_reduction_factor": 1530.6726006191952
+}
